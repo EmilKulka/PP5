@@ -3,12 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>DEMO</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <h1>Hello, world!</h1>
-    <form id="myForm">
+    <div id="customer-form" >
+    <form id="myForm" onsubmit="saveData(event)">
+        <div class="mb-3">
+            <label for="customer_id" class="form-label">Nazwa firmy</label>
+            <input type="text" class="form-control" id="customer_id" required>
+        </div>
         <div class="mb-3">
             <label for="company" class="form-label">Nazwa firmy</label>
             <input type="text" class="form-control" id="company" required>
@@ -54,42 +59,18 @@
             <input class="form-check-input" type="checkbox" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">aktywny</label>
         </div>
-        <button type="button" class="btn btn-secondary" onclick="saveData()">Zapisz do console.log()</button>
+        <button type="submit" class="btn btn-primary">Zapisz klienta</button>
         <button type="button" class="btn btn-warning" onclick="fillSampleData()">Wypełnij przykładowe dane</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
- 
-    <script>
-        function saveData() {
-            const formData = {
-                company: document.getElementById("company").value,
-                nip: document.getElementById("companyNIP").value,
-                city: document.getElementById("City").value,
-                street: document.getElementById("Street").value,
-                houseNumber: document.getElementById("houseNumber").value,
-                flatNumber: document.getElementById("flatNumber").value,
-                zipCode: document.getElementById("zipCode").value,
-                comments: document.getElementById("comments").value,
-                industry: document.getElementById("exampleSelect").value,
-                active: document.getElementById("flexCheckDefault").checked
-            };
-            
-            console.log(formData);
-        }
- 
-        function fillSampleData() {
-            document.getElementById("company").value = "Przykładowa Firma";
-            document.getElementById("companyNIP").value = "1234567890";
-            document.getElementById("City").value = "Warszawa";
-            document.getElementById("Street").value = "Przykładowa Ulica";
-            document.getElementById("houseNumber").value = "10";
-            document.getElementById("flatNumber").value = "5";
-            document.getElementById("zipCode").value = "00-001";
-            document.getElementById("comments").value = "Brak uwag.";
-            document.getElementById("exampleSelect").value = "1"; // Ustawienie przykładowej opcji branży
-            document.getElementById("flexCheckDefault").checked = true; // Ustawienie checkboxa na aktywny
-        }
-    </script>
+</div>
+    <div class="client-list">
+        <h1>Lista klientów</h1>
+        <button type="button" class="btn btn-primary" onclick="showForm()">Show form</button>
+        <button type="button" class="btn btn-danger" onclick="hideForm()">Hide form</button>
+        <ul id= "customer-list" class="list-group">
+        </ul>
+    </div>
+    <script src="script.js"></script>
  </body>
 </html>
  
