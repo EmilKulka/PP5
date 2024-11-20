@@ -5,25 +5,25 @@ let currentEditingID = null;
 
 function saveData(event) {
     event.preventDefault();
-    const formData = {
-        id: currentEditingID !== null ? currentEditingID : index++,
-        company: document.getElementById("company-name").value,
-        nip: document.getElementById("company-nip").value,
-        city: document.getElementById("city").value,
-        street: document.getElementById("street").value,
-        houseNumber: document.getElementById("house-number").value,
-        flatNumber: document.getElementById("flat-number").value,
-        zipCode: document.getElementById("zip-code").value,
-        comments: document.getElementById("comments").value,
-        industry: document.getElementById("industry").value,
-        active: document.getElementById("is-active").checked
-    };
+    let customer = new Customer();
+        customer.id = currentEditingID !== null ? currentEditingID : index++,
+        customer.company = document.getElementById("company-name").value,
+        customer.nip = document.getElementById("company-nip").value,
+        customer.city =  document.getElementById("city").value,
+        customer.street =  document.getElementById("street").value,
+        customer.houseNumber =  document.getElementById("house-number").value,
+        customer.flatNumber = document.getElementById("flat-number").value,
+        customer.zipCode = document.getElementById("zip-code").value,
+        customer.comments = document.getElementById("comments").value,
+        customer.industry = document.getElementById("industry").value,
+        customer.active = document.getElementById("is-active").checked
+    
 
     if(currentEditingID !== null) {
         const customerIndex = customerList.findIndex(customer => customer.id === currentEditingID);
-        customerList[customerIndex] = formData;
+        customerList[customerIndex] = customer;
     } else {
-        customerList.push(formData);
+        customerList.push(customer);
     }
 
     currentEditingID = null;
@@ -94,11 +94,7 @@ function renderCustomerList() {
     `
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div>
-                ${customer.company} |
-                ${customer.city} |
-                ${customer.street} 
-                ${customer.houseNumber}/${customer.flatNumber} |
-                ${customer.zipCode}
+                ${customer.getAddress()}
             </div>
             <button type="button" class="btn btn-danger" onclick="editData(${customer.id})">Edytuj</button>
         </li>
