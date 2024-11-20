@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DEMO</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="customer2.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand">Demo</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <button type="button" class="btn" onclick="showForm()">Dodaj klienta</button>
+                    <button type="button" class="btn" onclick="renderCustomerList()">Lista klientów</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+      <div class="container w-50">
+            <ul id= "customer-list" class="list-group"></ul>
+       </div>
+        <div class="container" id="customer-form" >
+            <form class="row g-3" id="myForm" onsubmit="saveData(event)">
+                <div class="col-md-6">
+                  <label for="companyName" class="form-label">Nazwa firmy</label>
+                  <input type="text" class="form-control" id="company-name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="companyNIP" class="form-label">NIP</label>
+                  <input type="text" class="form-control" id="company-nip" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="industry" class="form-label">Branża</label>
+                    <select class="form-select" id="industry" required>
+                        <option selected>Wybierz...</option>
+                        <option value="1">Opcja 1</option>
+                        <option value="2">Opcja 2</option>
+                        <option value="3">Opcja 3</option>
+                    </select>
+                  </div>
+                <div class="col-md-6">
+                  <label for="city" class="form-label">Miasto</label>
+                  <input type="text" class="form-control" id="city" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="street" class="form-label">Ulica</label>
+                  <input type="text" class="form-control" id="street" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="flatnumber" class="form-label">Numer budynku</label>
+                  <input type="text" class="form-control" id="flat-number" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="housenumber" class="form-label">Numer mieszkania</label>
+                  <input type="text" class="form-control" id="house-number" required>
+                </div>
+                <div class="col-md-2">
+                  <label for="zipcode" class="form-label">Kod pocztowy</label>
+                  <input type="text" class="form-control" id="zip-code" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="comments" class="form-label">Komentarz</label>
+                  <textarea class="form-control" id="comments" rows="4"></textarea required>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="is-active" required>
+                    <label class="form-check-label" for="active">
+                      Aktywny
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary">Zapisz klienta</button>
+                    <button type="button" class="btn btn-warning" onclick="fillSampleData()">Wypełnij przykładowe dane</button>
+                    <button type="button" class="btn btn-danger" onclick="hideForm()">Ukryj formularz</button>
+                </div>
+              </form>
+        </div>
+    <script src="script.js"></script>
+ </body>
+</html>
+ 
