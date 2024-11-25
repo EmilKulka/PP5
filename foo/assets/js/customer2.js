@@ -14,6 +14,6 @@ class Customer {
         this.active = true;
     }
     getAddress() {
-        return `${this.nip} | ${this.zipCode} | ${this.city} | ${this.street}  ${this.houseNumber}/${this.flatNumber}`;
+        return `${this.nip} | ${this.zipCode} | ${this.city} | ${this.street} ${this.houseNumber}/${this.flatNumber}`;
     }
 }

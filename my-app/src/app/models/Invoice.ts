@@ -1,4 +1,7 @@
-class Invoice {
+import { Unit } from "./Unit";
+import { Tax } from "./Tax";
+
+export class Invoice {
     name: string;
     quantity: number;
     unit?: Unit;

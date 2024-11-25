@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["foo"],
   "compilerOptions": {
     "outDir": "./assets/js/",
     /* Visit https://aka.ms/tsconfig to read more about this file */
