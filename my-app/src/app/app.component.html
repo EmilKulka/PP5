@@ -1,18 +1,3 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand">Demo</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <button type="button" class="btn" (click)="showForm()">Dodaj klienta</button>
-        <button type="button" class="btn" (click)="renderCustomerList()">Lista klientów</button>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<div class="container w-50">
-  <ul id="customer-list" class="list-group"></ul>
-</div>
 
 <div class="container" id="customer-form">
   <form class="row g-3" id="myForm" (ngSubmit)="saveData($event)">

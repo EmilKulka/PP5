@@ -1,0 +1,9 @@
+$body-color: black ;
+$body-bg: white; 
+
+
+.navbar {
+    --bs-navbar-brand-color: white;
+  }
+
+  @import "../node_modules/bootstrap/scss/bootstrap"
