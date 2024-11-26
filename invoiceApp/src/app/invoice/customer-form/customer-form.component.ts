@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
-  styleUrl: './customer-form.component.scss',
+  styleUrls: ['./customer-form.component.scss'],
   standalone: false
-});
+})
 
 export class CustomerFormComponent {
   testVariable: Supplier = new Supplier("FOO");

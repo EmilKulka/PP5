@@ -8,11 +8,11 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
   declarations: [
     CustomerFormComponent
   ],
-  exports: [
-    CustomerFormComponent
-  ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CustomerFormComponent
   ]
 })
 export class InvoiceModule { }
