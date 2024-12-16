@@ -1,6 +1,7 @@
 <app-customer-list-element
     *ngFor="let customer of customers"
     [customer]="customer"
+    (deletedCustomerEvent)="deletedCustomerEvent($event)"
 ></app-customer-list-element>
 
 <button class="btn" (click)="redirectToForm()">Wróc do formularza</button>

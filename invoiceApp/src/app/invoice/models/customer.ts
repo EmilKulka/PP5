@@ -12,6 +12,8 @@ export class Customer {
     active: boolean = true;
 
     getAddress(): string {
-        return `${this.nip} | ${this.zipCode} | ${this.city} | ${this.street} ${this.houseNumber}/${this.flatNumber}`;
+        return `${this.company}`;
     }
+
+    // return `${this.nip} | ${this.zipCode} | ${this.city} | ${this.street} ${this.houseNumber}/${this.flatNumber}`;
 }
