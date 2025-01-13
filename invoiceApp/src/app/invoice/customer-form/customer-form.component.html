@@ -2,18 +2,27 @@
 {{ customer | json }}
 
   <div class="container" id="customer-form">
-    <form class="row g-3" id="myForm" (ngSubmit)="saveData()" >
+    <form class="row g-3" id="myForm" (ngSubmit)="saveData(customerForm)"  #customerForm="ngForm">
       <div class="col-md-6">
         <label for="companyName" class="form-label">Nazwa firmy</label>
-        <input type="text" class="form-control" id="company-name" name="company" [(ngModel)]="customer.company" required>
+        <input type="text" class="form-control" id="company-name" name="company" #name="ngModel" [(ngModel)]="customer.company" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && name.invalid" class="alert alert-danger">
+          Pole nazwa nie moze byc puste
+        </div>
       </div>
       <div class="col-md-4">
         <label for="companyNIP" class="form-label">NIP</label>
-        <input type="text" class="form-control" id="company-nip" required>
+        <input type="text" class="form-control" id="company-nip" name="nip" #nip="ngModel" [(ngModel)]="customer.nip" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && nip.invalid" class="alert alert-danger">
+          Pole NIP nie moze byc puste
+        </div>
       </div>
       <div class="col-md-2">
         <label for="industry" class="form-label">Branża</label>
-        <select class="form-select" id="industry" required>
+        <select class="form-select" id="industry" name="industry" #industry="ngModel" [(ngModel)]="customer.industry" required>
+          <div class="invalid-feedback" *ngIf="customerForm.submitted && industry.invalid" class="alert alert-danger">
+            Pole Branża nie moze byc puste
+          </div>
           <option selected>Wybierz...</option>
           <option value="1">Opcja 1</option>
           <option value="2">Opcja 2</option>
@@ -22,36 +31,57 @@
       </div>
       <div class="col-md-6">
         <label for="city" class="form-label">Miasto</label>
-        <input type="text" class="form-control" id="city" required>
-      </div>
-      <div class="col-md-6">
-        <label for="street" class="form-label">Ulica</label>
-        <input type="text" class="form-control" id="street" required>
-      </div>
-      <div class="col-md-6">
-        <label for="flatnumber" class="form-label">Numer budynku</label>
-        <input type="text" class="form-control" id="flat-number" required>
-      </div>
-      <div class="col-md-4">
-        <label for="housenumber" class="form-label">Numer mieszkania</label>
-        <input type="text" class="form-control" id="house-number" required>
-      </div>
-      <div class="col-md-2">
-        <label for="zipcode" class="form-label">Kod pocztowy</label>
-        <input type="text" class="form-control" id="zip-code" required>
-      </div>
-      <div class="col-md-6">
-        <label for="comments" class="form-label">Komentarz</label>
-        <textarea class="form-control" id="comments" rows="4" required></textarea>
-      </div>
-      <div class="col-md-2">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="is-active" required>
-          <label class="form-check-label" for="active">Aktywny</label>
+        <input type="text" class="form-control" id="city" name="city" #city="ngModel" [(ngModel)]="customer.city" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && city.invalid" class="alert alert-danger">
+          Pole Miasto nie moze byc puste
         </div>
       </div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-primary">Zapisz klienta</button>
+        <label for="street" class="form-label">Ulica</label>
+        <input type="text" class="form-control" id="street" name="street" #street="ngModel" [(ngModel)]="customer.street" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && street.invalid" class="alert alert-danger">
+          Pole Ulica nie moze byc puste
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="flatnumber" class="form-label">Numer budynku</label>
+        <input type="text" class="form-control" id="flat-number" name="flatNumber" #flatNumber="ngModel" [(ngModel)]="customer.flatNumber" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && flatNumber.invalid" class="alert alert-danger">
+          Pole Number Mieszkania nie moze byc puste
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="housenumber" class="form-label">Numer mieszkania</label>
+        <input type="text" class="form-control" id="house-number" name="houseNumber" #houseNumber="ngModel" [(ngModel)]="customer.houseNumber" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && houseNumber.invalid" class="alert alert-danger">
+          Pole Numer Budynku nie moze byc puste
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label for="zipcode" class="form-label">Kod pocztowy</label>
+        <input type="text" class="form-control" id="zip-code" name="zipCode" #zipCode="ngModel" [(ngModel)]="customer.zipCode" required>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && zipCode.invalid" class="alert alert-danger">
+          Pole Kod pocztowy nie moze byc puste
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="comments" class="form-label">Komentarz</label>
+        <textarea class="form-control" id="comments" rows="4" name="comments" #comments="ngModel" [(ngModel)]="customer.comments" required></textarea>
+        <div class="invalid-feedback" *ngIf="customerForm.submitted && comments.invalid" class="alert alert-danger">
+          Pole Komentarz nie moze byc puste
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="is-active" name="active" #active="ngModel"  [(ngModel)]="customer.active" required>
+          <label class="form-check-label" for="active">Aktywny</label>
+          <div class="invalid-feedback" *ngIf="customerForm.submitted && active.invalid" class="alert alert-danger">
+            Pole Aktywny nie moze byc puste
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary" [disabled]="customerForm.invalid">Zapisz klienta</button>
         <button type="button" class="btn btn-warning">Wypełnij przykładowe dane</button>
         <button type="button" class="btn btn-danger">Ukryj formularz</button>
       </div>
