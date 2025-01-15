@@ -1,0 +1,43 @@
+{
+  "customers": [
+    {
+      "id": null,
+      "company": "asfas",
+      "nip": "asf",
+      "city": "asf",
+      "street": "asf",
+      "houseNumber": "asf",
+      "flatNumber": "asf",
+      "zipCode": "sf",
+      "comments": "asf",
+      "industry": "1",
+      "active": true
+    },
+    {
+      "id": null,
+      "company": "asfas",
+      "nip": "asf",
+      "city": "asf",
+      "street": "asf",
+      "houseNumber": "asf",
+      "flatNumber": "asf",
+      "zipCode": "asf",
+      "comments": "asf",
+      "industry": "1",
+      "active": true
+    },
+    {
+      "id": null,
+      "company": "asfas",
+      "nip": "asf",
+      "city": "asf",
+      "street": "asf",
+      "houseNumber": "asf",
+      "flatNumber": "asf",
+      "zipCode": "asf",
+      "comments": "asf",
+      "industry": "2",
+      "active": true
+    }
+  ]
+}

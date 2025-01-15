@@ -19,7 +19,10 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     console.log("FOO");
   }
   ngOnInit(): void {
-    this.customers = this.customerService.getCustomers();
+    this.customerService.getCustomers().subscribe((data: Customer[]) => {
+      this.customers = data;
+    
+    });
   }
 
   redirectToForm() {

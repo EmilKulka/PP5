@@ -14,14 +14,17 @@ import { NgForm } from '@angular/forms';
 export class CustomerFormComponent {
 
   constructor(private customerService: CustomerService, private router: Router) {
-    
   }
 
   customer: Customer = new Customer();
 
   saveData(form: NgForm) {
     if(form.valid) {
-      this.customerService.addCustomer(this.customer);
+      this.customerService.addCustomer(this.customer)
+      .subscribe((data: Customer) => {
+        console.log(data)
+      });
+
       this.router.navigate(['/invoice/customer-list']);
     }
   }

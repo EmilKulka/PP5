@@ -15,5 +15,10 @@ export class Customer {
         return `${this.company}`;
     }
 
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+    }
+
     // return `${this.nip} | ${this.zipCode} | ${this.city} | ${this.street} ${this.houseNumber}/${this.flatNumber}`;
 }
